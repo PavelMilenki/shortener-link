@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "aneken",
+  "mongoUri": "mongodb+srv://Aneken:qwert567@cluster0-iiwhn.azure.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://pavel"
+}
