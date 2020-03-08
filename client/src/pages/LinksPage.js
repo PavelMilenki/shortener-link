@@ -5,22 +5,22 @@ import {Loader} from '../components/Loader'
 import {LinksList} from '../components/LinksList'
 
 export const LinksPage = () => {
-  const [links, setLinks] = useState([])
-  const {loading, request} = useHttp()
-  const {token} = useContext(AuthContext)
+  const [links, setLinks] = useState([]);
+  const {loading, request} = useHttp();
+  const {token} = useContext(AuthContext);
 
   const fetchLinks = useCallback(async () => {
     try {
       const fetched = await request('/api/link', 'GET', null, {
         Authorization: `Bearer ${token}`
-      })
+      });
       setLinks(fetched)
     } catch (e) {}
-  }, [token, request])
+  }, [token, request]);
 
   useEffect(() => {
     fetchLinks()
-  }, [fetchLinks])
+  }, [fetchLinks]);
 
   if (loading) {
     return <Loader/>
@@ -31,4 +31,4 @@ export const LinksPage = () => {
       {!loading && <LinksList links={links} />}
     </>
   )
-}
+};
